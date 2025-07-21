@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Grid</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #121212;
+      color: #ffffff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: #00ffff;
+      text-shadow: 0 0 5px #00ffff33;
+    }
+
+    .grids {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 200px);
+      gap: 15px;
+    }
+
+    .card {
+      overflow: hidden;
+      border-radius: 10px;
+      background: #292929;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.9);
+      transition: filter 0.3s ease;
+    }
+
+    .card img:hover {
+      filter: brightness(1.1);
+    }
+
+    .card1 { grid-column: span 2; grid-row: span 2; }
+    .card2 { grid-column: 3; grid-row: 1; }
+    .card3 { grid-column: 3; grid-row: 2; }
+    .card4 { grid-column: 1; grid-row: 3; }
+    .card5 { grid-column: 2; grid-row: 3; }
+    .card6 { grid-column: 3; grid-row: 3; }
+    .card7 { grid-column: 1; grid-row: 4; }
+    .card8 { grid-column: 2; grid-row: 4; }
+    .card9 { grid-column: 3; grid-row: 4; }
+
+
+    @media (max-width: 992px) {
+      .grids {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+      }
+
+      .card1 {
+        grid-column: span 2 !important;
+        grid-row: span 1 !important;
+      }
+
+      .card img {
+        height: auto;
+        max-height: 300px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grids {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .card1, .card2, .card3, .card4, .card5, .card6, .card7, .card8, .card9 {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+      }
+
+      .card img {
+        max-height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Responsive Grid layout </h1>
+    <div class="grids">
+      <div class="card card1"><img src="./Screenshot 2025-06-20 210353.png" alt="1" /></div>
+      <div class="card card2"><img src="./Screenshot 2025-06-20 210826.png" alt="2" /></div>
+      <div class="card card3"><img src="./Screenshot 2025-06-20 211234.png" alt="3" /></div>
+      <div class="card card4"><img src="./Screenshot 2025-06-21 205434.png" alt="4" /></div>
+      <div class="card card5"><img src="./Screenshot 2025-06-24 111006.png" alt="5" /></div>
+      <div class="card card6"><img src="./Screenshot 2025-06-20 210826.png" alt="6" /></div>
+      <div class="card card7"><img src="./Screenshot 2025-06-20 210353.png" alt="7" /></div>
+      <div class="card card8"><img src="./Screenshot 2025-06-20 211234.png" alt="8" /></div>
+      <div class="card card9"><img src="./Screenshot 2025-06-21 205434.png" alt="9" /></div>
+    </div>
+  </div>
+</body>
+</html>
